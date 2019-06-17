@@ -23,7 +23,9 @@ $ pip install .
 
 The main lookup function can be run by calling the `lookup` command followed by one or more location barcodes, which can be scanned directly into the CLI using a barcode reader. The output of the command will print to the console and write to an outfile. Barcodes should be separated by a single space.
 
-Example:
+The script will look in the user's home directly to find a configuration file with login information and a path to an output CSV file. A template config.yml file can be found in this repository.
+
+Example usage:
 
 ```
 $ lookup 81053

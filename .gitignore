@@ -23,8 +23,6 @@
 #other
 *.README.md.html
 
-*.config.yml
-
 /location_search.egg-info/
 
 /location_search/__pycache__/

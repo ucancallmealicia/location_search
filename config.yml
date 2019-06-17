@@ -1,0 +1,5 @@
+api_url: api_url
+api_username: api_username
+api_password: api_password
+api_output_csv: /Path/to/output.csv
+
