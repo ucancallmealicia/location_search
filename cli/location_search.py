@@ -4,7 +4,7 @@
 Requires Python 3.7
 '''
 
-import requests, json, sys
+import requests, json, sys, pprint
 from pathlib import Path
 from utilities import utilities as u
 
@@ -24,11 +24,13 @@ def search_containers(api_url, headers, location_uri):
 	containers = []
 	query = f'{{"query":{{"jsonmodel_type": "field_query", "field": "location_uri_u_sstr", "value": "{location_uri}", "literal":true}}}}'
 	tc_search = requests.get(api_url + "/repositories/12/top_containers/search?filter=" + query, headers=headers).json()
-	#pprint.pprint(tc_search)
 	if 'response' in tc_search:
 		for item in tc_search['response']['docs']:
 			tc_uri = item['id']
-			tc_barcode = item['barcode_u_sstr'][0]
+			if 'barcode_u_sstr' in item:
+				tc_barcode = item['barcode_u_sstr'][0]
+			else:
+				tc_barcode = 'missing_barcode'
 			tc_data = item['title']
 			#the HM films might need special treatment here...
 			collection_id = item['collection_identifier_stored_u_sstr'][0]

@@ -4,6 +4,9 @@
 # Setuptools distribution folder.
 /dist/
 
+#test data
+/test_data/
+
 #pycache folder
 /__pycache__/
 
